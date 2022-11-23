@@ -1,0 +1,124 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Fifa World Cup Qatar 2022</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="images/logo_fifa.png" class="logo" alt="" />
+    </header>
+    <main>
+      <section class="hero-section">
+        <div class="text">
+          <h1 class="title">Fifa World Cup Qatar 2022</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+            modi saepe vel fugiat at recusandae quod praesentium labore, esse,
+            exercitationem ipsa perspiciatis totam minus quisquam! Accusamus
+            nesciunt explicabo eaque sed!
+          </p>
+        </div>
+      </section>
+      <section class="gallery">
+        <div class="gallery-container">
+          <div class="gallery-img img1">
+            <img src="images/5.jpg" alt="" />
+          </div>
+          <div class="gallery-img img2">
+            <img src="images/2.jpg" alt="" />
+          </div>
+          <div class="gallery-img img3">
+            <img src="images/3.jpg" alt="" />
+          </div>
+        </div>
+        <!--  <img src="images/logo.png" class="logo-png" alt="" /> -->
+      </section>
+      <section class="standings" >
+        <div class="groups-container" id="Groups">
+         
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script>
+
+      const token = "c7a4e3a816ab40ebb94531af497e761a";
+      let baseUrl = "https://api.football-data.org/v4"
+  
+      function getStandings()
+      {
+          const url = `${baseUrl}/competitions/2000/standings`
+          axios.get(url, {
+            
+              headers: {
+                  "X-Auth-Token": `${token}`,
+                  'Access-Control-Allow-Origin' : true,
+    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+              }
+          })
+          .then((response) => {
+              
+              const standings = response.data.standings
+  
+              document.getElementById("standings").innerHTML = ""
+              for(standing of standings)
+              {
+                  let tableContent = ``
+  
+                  for(row of standing.table)
+                  {
+                      tableContent += `
+                      <tr>
+                  <td>
+                    <span
+                      ><img  src="${row.team.crest}"  alt="${row.team.tla}" />
+                      <b>${row.team.tla}</b></span
+                    >
+                  </td>
+                  <td> ${row.won}</td>
+                  <td> ${row.lost}</td>
+                  <td>${row.draw}</td>
+                  <td> <b>${row.points}</b></td>
+                </tr>  
+                              `
+                  }
+  
+                  const content = `
+                  <article class="group-card">
+            <table class="group-table">
+              <caption>
+                <h2 class="group-name">${standing.group}</h2>
+              </caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>W</th>
+                  <th>D</th>
+                  <th>L</th>
+                  <th>Pts</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tableContent}
+              </tbody>
+            </table>
+          </article>
+                 
+                  `
+                  document.getElementById("Groups").innerHTML += content
+              }
+          })
+      }
+  
+      
+  
+      getStandings();
+      
+  </script>
+  </html>
+  </body>
+</html>
