@@ -54,8 +54,8 @@
           const url = `${baseUrl}/competitions/2000/standings`
           axios.get(url, {
               headers: {
-                  "X-Auth-Token": `${token}`
-                  
+                  "X-Auth-Token": `${token}`,
+                  "Access-Control-Allow-Origin":'true'
               }
           })
           .then((response) => {
