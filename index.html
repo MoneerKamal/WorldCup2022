@@ -51,6 +51,12 @@
   
       function getStandings()
       {
+      const t=  fetch('https://api.football-data.org/v4/competitions/PD/standings', {
+    headers: {
+        'X-Auth-Token': 'c7a4e3a816ab40ebb94531af497e761a'
+    }
+});
+console.log(t);
           const url = `${baseUrl}/competitions/2000/standings`;
           
           axios.get(url, {
