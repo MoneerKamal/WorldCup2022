@@ -53,11 +53,9 @@
       {
           const url = `${baseUrl}/competitions/2000/standings`
           axios.get(url, {
-            
               headers: {
-                  "X-Auth-Token": `${token}`,
-                  'Access-Control-Allow-Origin' : true,
-    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                  "X-Auth-Token": `${token}`
+                  
               }
           })
           .then((response) => {
