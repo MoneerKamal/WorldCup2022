@@ -55,7 +55,11 @@
           axios.get(url, {
               headers: {
                   "X-Auth-Token": `${token}`,
-                  "Access-Control-Allow-Origin":'true'
+                  "Access-Control-Allow-Methods": "GET",
+"Access-Control-Allow-Origin" :"*",
+"Access-Control-Allow-Headers": "x-auth-token, x-response-control",
+"Content-Length": "0",
+"Content-Type": "text/plain"
               }
           })
           .then((response) => {
