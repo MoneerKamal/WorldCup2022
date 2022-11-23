@@ -51,8 +51,9 @@
   
       function getStandings()
       {
-          const url = `${baseUrl}/competitions/2000/standings`
-          axios.get(url, {
+          const url = `${baseUrl}/competitions/2000/standings`;
+        
+fetch(url, {method: 'GET',
               headers: {
                   "X-Auth-Token": `${token}`
                   
