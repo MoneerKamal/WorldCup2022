@@ -8,6 +8,7 @@
 body{
 font-size: 1rem;
 font-family: 'Russo One', sans-serif; 
+
 }
 
 header{
@@ -53,6 +54,7 @@ text-shadow: 0px 10px 20px #974964 ;
     width: 80vw;
     margin: 0 auto;
     position: relative;
+    
 }
 .gallery-container{
     display: grid;
@@ -78,22 +80,39 @@ text-shadow: 0px 10px 20px #974964 ;
 }
 .logo-png{
     position: absolute;
-    top:40%;
-    left:0;
+    top:5%;
+    left:2%;
     z-index: 2;
     width:200px;
     -webkit-filter: drop-shadow(5px 5px 20px #974964);;
     filter: drop-shadow(5px 5px 20px #974964);
+   
 }
 .standings{
-    background: linear-gradient(45deg, #9c1f43, #8f1739);
+    background-color: #8f1739;
+     background-image: url(../images/pattern-w.png) ;
+    background-repeat: repeat; 
     padding-top: 5rem;
     padding-bottom: 5rem;
-  
+  position: relative;
+  padding-top: 3rem;
+}
+.standings h1{
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 .groups-container{
-    width: 70vw;
+    width: 69vw;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.group-card{
+    margin-bottom: 0.6rem;
 }
 caption{
     background-color:#fff;
@@ -106,7 +125,7 @@ caption{
 }
 table {
     font-family: 'Oswald', sans-serif;
-    width: 400px;
+    width: 300px;
      border-collapse: collapse; 
    
     overflow: hidden;
@@ -116,15 +135,20 @@ text-align: center;
 
 th,
 td {
-    padding: 15px;
+    padding: 5px;
     background-color: rgba(255, 255, 255,0.9);
     color: #8f1739;
     
 }
 td img{
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    margin-left: 3px;
+    margin-right: 3px;
+    box-shadow:0px 2px 5px #8f1739;
 }
 
 th {

@@ -35,9 +35,11 @@
             <img src="images/3.jpg" alt="" />
           </div>
         </div>
-        <!--  <img src="images/logo.png" class="logo-png" alt="" /> -->
+     
       </section>
       <section class="standings" >
+           <img src="images/logo.png" class="logo-png" alt="" />
+           <h1>Groups</h1> 
         <div class="groups-container" id="Groups">
          
         </div>
@@ -48,18 +50,13 @@
 
       const token = "c7a4e3a816ab40ebb94531af497e761a";
       let baseUrl = "https://api.football-data.org/v4"
-  
+    
       function getStandings()
       {
-      const t=  fetch('https://api.football-data.org/v4/competitions/PD/standings', {
-    headers: {
-        'X-Auth-Token': 'c7a4e3a816ab40ebb94531af497e761a'
-    }
-});
-console.log(t);
+      
           const url = `${baseUrl}/competitions/2000/standings`;
           
-          axios.get(url, {
+          axios.get("https://proxy.cors.sh/https://api.football-data.org/v4/competitions/2000/standings", {
               headers: {
                   "X-Auth-Token": `${token}`
                   
@@ -69,7 +66,7 @@ console.log(t);
               
               const standings = response.data.standings
   
-              document.getElementById("standings").innerHTML = ""
+              document.getElementById("Groups").innerHTML = " ";
               for(standing of standings)
               {
                   let tableContent = ``
@@ -81,8 +78,9 @@ console.log(t);
                   <td>
                     <span
                       ><img  src="${row.team.crest}"  alt="${row.team.tla}" />
-                      <b>${row.team.tla}</b></span
+                      </span
                     >
+                    <b>${row.team.tla}</b>
                   </td>
                   <td> ${row.won}</td>
                   <td> ${row.lost}</td>
@@ -121,7 +119,7 @@ console.log(t);
   
       
   
-      getStandings();
+     getStandings();
       
   </script>
   </html>
